@@ -8,8 +8,6 @@ body {
   font-family: "Inter", sans-serif;
   margin: 0px auto;
   max-width: 650px;
-  height: 779px;
-  background: #121212;
 }
 
 header {
@@ -43,6 +41,11 @@ header a {
   color: white;
 }
 
+main {
+  background-color: #121212;
+
+  height: 500px;
+}
 .search-movie {
   display: flex;
   margin: 0px auto;
@@ -82,5 +85,13 @@ header a {
 
 .fa-solid {
   padding: 1em;
+  color: white;
+}
+
+.search-results {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: white;
 }
