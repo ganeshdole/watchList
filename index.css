@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0px auto;
+  max-width: 650px;
+  height: 779px;
+  background: #121212;
+}
+
+header {
+  background-size: cover;
+  background-image: url("images/andre-tan-THJJRUhNlEc-unsplash.jpg");
+}
+
+.overlay {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 50px;
+  height: 208px;
+  text-shadow: 2px 2px black;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-weight: 800;
+}
+
+header h1 {
+  font-size: 43px;
+  font-weight: 800;
+  line-height: 24px;
+  letter-spacing: -0.045em;
+  text-align: justified;
+}
+
+header a {
+  text-decoration: none;
+  color: white;
+}
+
+.search-movie {
+  display: flex;
+  margin: 0px auto;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 40px;
+  background-color: #2e2e2f;
+  position: relative;
+  border: none;
+  border-radius: 6px;
+  bottom: 1.5rem;
+}
+
+.movie-input {
+  width: 100%;
+  border: none;
+  height: 100%;
+  background-color: #2e2e2f;
+  color: rgba(255, 255, 255, 0.883);
+  font-weight: 600;
+}
+
+.movie-input:focus {
+  outline: none;
+}
+
+.search-btn {
+  height: 100%;
+  padding: 1em 2em;
+  border: none;
+  border-bottom-right-radius: 6px;
+  border-top-right-radius: 6px;
+  background-color: #6d6d6d;
+  font-weight: 600;
+}
+
+.fa-solid {
+  padding: 1em;
+  color: white;
+}
