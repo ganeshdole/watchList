@@ -1,8 +1,23 @@
 const movieInput = document.getElementById("movie-input");
 const searchBtn = document.getElementById("search-btn");
 const apiKey = "65c98c14";
+const watchList = [];
+
 let moviesInfo = [];
 let searchResult = [];
+
+document.addEventListener("click", async (event) => {
+  if (event.target.id === "search-btn") {
+    const response = await fetch(
+      `http://www.omdbapi.com/?apikey=${apiKey}&s=${movieInput.value}`
+    );
+    const result = await response.json();
+    searchResult = result.Search;
+    getMovieInfo();
+  } else if (event.target.parentElement.id === "add-to-watchlist") {
+    addToWatchList(event.target.parentElement.parentElement.id);
+  }
+});
 
 async function getMovieInfo() {
   moviesInfo = [];
@@ -16,17 +31,8 @@ async function getMovieInfo() {
   render();
 }
 
-searchBtn.addEventListener("click", async () => {
-  const response = await fetch(
-    `http://www.omdbapi.com/?apikey=${apiKey}&s=${movieInput.value}`
-  );
-  const result = await response.json();
-  searchResult = result.Search;
-  getMovieInfo();
-});
-
-function renderMovies() {
-  return moviesInfo
+function renderMovies(array) {
+  return array
     .map((movie) => {
       const { imdbID, Poster, Title, Ratings, Runtime, Genre, Plot } = movie;
       return `
@@ -38,9 +44,9 @@ function renderMovies() {
         </div>
         <p class="movie-runtime">${Runtime}</p>
         <p class="movie-genre">${Genre}</p>
-        <div class="movie-wishlist">
-            <img src="./images/add.png"/>
-            <p>Watchlist</p>
+        <div class="movie-wishlist" id="add-to-watchlist">
+                <img src="./images/add.png"/>
+                <p>Watchlist</p>
         </div>
         <p class="movie-about">${Plot}</p>
     </div>`;
@@ -48,6 +54,19 @@ function renderMovies() {
     .join(" ");
 }
 
+function addToWatchList(id) {
+  if (!watchList.some((movie) => movie.imdbID === id)) {
+    const filteredMovies = moviesInfo.filter((movie) => movie.imdbID == id);
+
+    if (filteredMovies.length > 0) {
+      watchList.push(filteredMovies[0]);
+    }
+  }
+  localStorage.clear();
+  localStorage.setItem("watchList", JSON.stringify(watchList));
+}
+
 function render() {
-  document.getElementById("search-results").innerHTML = renderMovies();
+  document.getElementById("search-results").innerHTML =
+    renderMovies(moviesInfo);
 }
