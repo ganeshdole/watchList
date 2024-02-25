@@ -2,7 +2,6 @@ const movieInput = document.getElementById("movie-input");
 const searchBtn = document.getElementById("search-btn");
 const apiKey = "65c98c14";
 const watchList = [];
-
 let moviesInfo = [];
 let searchResult = [];
 

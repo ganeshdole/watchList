@@ -43,8 +43,7 @@ header a {
 
 main {
   background-color: #121212;
-
-  height: 500px;
+  height: 100vh;
 }
 .search-movie {
   display: flex;
@@ -88,7 +87,8 @@ main {
   color: white;
 }
 
-.search-results {
+.search-results,
+.watchlist {
   height: 100%;
   background-color: #121212;
   display: flex;
