@@ -8,7 +8,7 @@ let searchResult = [];
 document.addEventListener("click", async (event) => {
   if (event.target.id === "search-btn") {
     const response = await fetch(
-      `http://www.omdbapi.com/?apikey=${apiKey}&s=${movieInput.value}`
+      `https://www.omdbapi.com/?apikey=${apiKey}&s=${movieInput.value}`
     );
     const result = await response.json();
     searchResult = result.Search;
@@ -22,7 +22,7 @@ async function getMovieInfo() {
   moviesInfo = [];
   for (const movie of searchResult) {
     const response = await fetch(
-      `http://www.omdbapi.com/?apikey=${apiKey}&i=${movie.imdbID}`
+      `https://www.omdbapi.com/?apikey=${apiKey}&i=${movie.imdbID}`
     );
     const data = await response.json();
     moviesInfo.push(data);
