@@ -90,8 +90,14 @@ main {
 
 .search-results {
   height: 100%;
+  background-color: #121212;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
+}
+
+.movie-poster {
+  width: 10px;
 }
