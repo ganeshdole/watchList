@@ -101,3 +101,85 @@ main {
 .movie-poster {
   width: 10px;
 }
+
+.movie {
+  border-bottom: 1px solid rgb(108, 107, 107);
+  width: 80%;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: 1rem auto auto auto 1rem;
+  grid-template-areas:
+    ". . . . "
+    "poster title title title "
+    "poster runtime genres add-to-watchlist"
+    "poster plot plot plot"
+    ". . . . ";
+  gap: 10px;
+  font-family: Inter;
+}
+
+.movie-poster {
+  grid-area: poster;
+  width: 100px;
+  border: 1px solid snow;
+}
+
+.movie-title {
+  display: flex;
+  grid-area: title;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: justified;
+}
+
+.movie-rating {
+  grid-area: title;
+  margin-left: 10px;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.movie-runtime {
+  grid-area: runtime;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.movie-genre {
+  grid-area: genres;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0em;
+}
+
+.movie-wishlist {
+  display: flex;
+  gap: 10px;
+  justify-content: end;
+  grid-area: add-to-watchlist;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0em;
+}
+.movie-wishlist img {
+  width: 16px;
+  height: 16px;
+}
+.movie-about {
+  grid-area: plot;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}

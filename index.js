@@ -28,16 +28,22 @@ searchBtn.addEventListener("click", async () => {
 function renderMovies() {
   return moviesInfo
     .map((movie) => {
+      const { imdbID, Poster, Title, Ratings, Runtime, Genre, Plot } = movie;
       return `
-    <div class="movie">
-        <img class="movie-poster" src="${movie.Poster}"/>
-        <h1>${movie.Title}</h1>
-        <p>${movie.Ratings[0].Value.slice(0, 3)}⭐️</p>
-        <p>${movie.Runtime}</p>
-        <p>${movie.Genre}</p>
-        <p>${movie.Plot}</p>
-    </div>
-    `;
+      <div class="movie" id="${imdbID}">
+        <img class="movie-poster" src="${Poster}" alt="Movie Poster"/>
+        <div class="movie-title">
+            <h3 class="movie-title">${Title}</h3>
+            <p class="movie-rating">${Ratings[0].Value.slice(0, 3)} ⭐️</p>
+        </div>
+        <p class="movie-runtime">${Runtime}</p>
+        <p class="movie-genre">${Genre}</p>
+        <div class="movie-wishlist">
+            <img src="./images/add.png"/>
+            <p>Watchlist</p>
+        </div>
+        <p class="movie-about">${Plot}</p>
+    </div>`;
     })
     .join(" ");
 }
